@@ -1,0 +1,9 @@
+.idea
+*.xml
+.scrapy
+*.pyc
+/__pycache__/
+*.json
+*.txt
+/data/
+/crawls/
