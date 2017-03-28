@@ -3,45 +3,45 @@
 * 作为一个程序员，怎么能不知道stackoverflow呢，面向stackoverflow也是一种新的编程模式。所以应该对这个网站有所了解，那就写爬虫分析一下吧。  
 * 在questions页面下选择按vote排序，爬取前20000页，每页将问题数量设置为50，共100W条，（实际上本来是想爬完1300W条的，但100W条后面问题基本上都只有1个或0个回答，那就选取前100W就好吧）  
 
-按降序排列了这100W条数据的votes数，生成折线图  
+**按降序排列了这100W条数据的votes数，生成折线图**  
 
 ![Votes折线图](https://github.com/chenjiandongx/stackoverflow/blob/master/images/votes_0.png)  
 2k后的问题的votes数基本上就已经在400以下了，接着后面的就基本上是贴地飞行了  
 
 votes数最多 : [Why is it faster to process a sorted array than an unsorted array?](http://stackoverflow.com/questions/11227809/why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array)
 
-votes数的连续分布情况 
+**votes数的连续分布情况** 
 
 ![votes甘特图](https://github.com/chenjiandongx/stackoverflow/blob/master/images/votes_1.png)  
 可见最多的还是集中在1-2K之间,从6k开始基本上就断层了
 
 
-按降序排列了这100W条数据的answers数，生成折线图  
+**按降序排列了这100W条数据的answers数，生成折线图**  
 
 ![answers折线图](https://github.com/chenjiandongx/stackoverflow/blob/master/images/answers_0.png)  
 很明显，2k之后的answers数基本上就小于20条了  
 
 answers数最多: [What is the best comment in source code you have ever encountered? [closed]](http://stackoverflow.com/questions/184618/what-is-the-best-comment-in-source-code-you-have-ever-encountered)
 
-answers数的连续分布情况  
+**answers数的连续分布情况**  
 ![answers甘特图](https://github.com/chenjiandongx/stackoverflow/blob/master/images/answers_1.png)  
 150后也就断层了，实际上能达到这样的回答数极少
 
-按降序排列了这100W条数据的views数，生成折线图  
+**按降序排列了这100W条数据的views数，生成折线图**  
 ![views折线图](https://github.com/chenjiandongx/stackoverflow/blob/master/images/views_0.png)  
 
 最高达到了4.5m，10000以后的基本上就不足3000了  
 views数最多: [How to undo last commit(s) in Git?](http://stackoverflow.com/questions/927358/how-to-undo-last-commits-in-git)
 
-views数的连续分布情况  
+**views数的连续分布情况**  
 ![views甘特图](https://github.com/chenjiandongx/stackoverflow/blob/master/images/views_1.png)
 
 ### 再看看votes，views，answers三者的散点图对应情况  
-votes - views  
+* votes - views  
 ![votes-views散点图](https://github.com/chenjiandongx/stackoverflow/blob/master/images/views_votes.png)  
-votes - answers  
+* votes - answers  
 ![votes-answers散点图](https://github.com/chenjiandongx/stackoverflow/blob/master/images/answers_votes.png)  
-views - answers  
+* views - answers  
 ![views-answers散点图](https://github.com/chenjiandongx/stackoverflow/blob/master/images/view_answers.png)  
 
 总的来说，这三者对应关系类似与一个金字塔。三个图基本上都是左下角靠近原点的区域被填满，也就是说绝对大部分的问题的votes，answers和views都是属于最下层的。高质量活跃的问题是处于金字塔顶端的。且三者的最高数都不是同一个问题。
