@@ -47,7 +47,7 @@ views数最多: [How to undo last commit(s) in Git?](http://stackoverflow.com/qu
 * views - answers  
 ![views-answers散点图](https://github.com/chenjiandongx/stackoverflow/blob/master/images/view_answers.png)  
 
-总的来说，这三者对应关系类似于一个金字塔。三个图基本上都是左下角靠近原点的区域被填满，也就是说绝对大部分的问题的votes，answers和views都是属于最下层的。高质量活跃的问题是处于金字塔顶端的。且三者的最高数都不是同一个问题。
+总的来说，这三者对应关系类似于一个金字塔。三个图基本上都是左下角靠近原点的区域被填满，也就是说绝对大部分的问题的votes，answers和views都是属于最下层的。高质量活跃的问题是处于金字塔顶端的。三者的最高数好像也没特别明显的对应关系，且三者的最高数都不是同一个问题。
 
 
 根据所有问题的tags提取出总量前200的关键词（前50条如下），第一名是c#，python排在第5
