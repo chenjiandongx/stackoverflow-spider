@@ -6,7 +6,6 @@
 * **按降序排列了这100W条数据的votes数，生成折线图**  
 ![Votes折线图](https://github.com/chenjiandongx/stackoverflow/blob/master/images/votes_0.png)  
 2k后的问题的votes数基本上就已经在400以下了，接着后面的就基本上是贴地飞行了  
-
 votes数最多 : [Why is it faster to process a sorted array than an unsorted array?](http://stackoverflow.com/questions/11227809/why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array)
 
 * **votes数的连续分布情况** 
@@ -17,7 +16,6 @@ votes数最多 : [Why is it faster to process a sorted array than an unsorted ar
 * **按降序排列了这100W条数据的answers数，生成折线图**  
 ![answers折线图](https://github.com/chenjiandongx/stackoverflow/blob/master/images/answers_0.png)  
 很明显，2k之后的answers数基本上就小于20条了  
-
 answers数最多: [What is the best comment in source code you have ever encountered? [closed]](http://stackoverflow.com/questions/184618/what-is-the-best-comment-in-source-code-you-have-ever-encountered)
 
 * **answers数的连续分布情况**  
@@ -26,7 +24,6 @@ answers数最多: [What is the best comment in source code you have ever encount
 
 * **按降序排列了这100W条数据的views数，生成折线图**  
 ![views折线图](https://github.com/chenjiandongx/stackoverflow/blob/master/images/views_0.png)  
-
 最高达到了4.5m，10000以后的基本上就不足3000了  
 views数最多: [How to undo last commit(s) in Git?](http://stackoverflow.com/questions/927358/how-to-undo-last-commits-in-git)
 
