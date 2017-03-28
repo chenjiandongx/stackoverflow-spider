@@ -105,7 +105,7 @@ views数最多: [How to undo last commit(s) in Git?](http://stackoverflow.com/qu
 ('unit-testing', 7253),
 ('bash', 6825)
 ```
-这样看好像不太直观，所以就把它根据词频生成了词云  
+**这样看好像不太直观，所以就把它根据词频生成了词云**  
 ![词云](https://github.com/chenjiandongx/stackoverflow/blob/master/images/word_cloud.jpg)
 
 ## 因为是用python写的爬虫，所以重点来分析下Python类的问答
