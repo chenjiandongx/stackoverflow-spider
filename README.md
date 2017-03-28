@@ -1,5 +1,5 @@
 #  爬取Stackoverflow 100万条问答
-
+* 研究了一下Scrapy爬虫框架，就想来动手实践一下。
 * 作为一个程序员，怎么能不知道stackoverflow呢，面向stackoverflow也是一种新的编程模式。所以应该对这个网站有所了解，那就写爬虫分析一下吧。  
 * 在questions页面下选择按vote排序，爬取前20000页，每页将问题数量设置为50，共100W条，（实际上本来是想爬完1300W条的，但100W条后面问题基本上都只有1个或0个回答，那就选取前100W就好吧）  
 
@@ -47,7 +47,7 @@ views数最多: [How to undo last commit(s) in Git?](http://stackoverflow.com/qu
 * views - answers  
 ![views-answers散点图](https://github.com/chenjiandongx/stackoverflow/blob/master/images/view_answers.png)  
 
-总的来说，这三者对应关系类似与一个金字塔。三个图基本上都是左下角靠近原点的区域被填满，也就是说绝对大部分的问题的votes，answers和views都是属于最下层的。高质量活跃的问题是处于金字塔顶端的。且三者的最高数都不是同一个问题。
+总的来说，这三者对应关系类似于一个金字塔。三个图基本上都是左下角靠近原点的区域被填满，也就是说绝对大部分的问题的votes，answers和views都是属于最下层的。高质量活跃的问题是处于金字塔顶端的。且三者的最高数都不是同一个问题。
 
 
 根据所有问题的tags提取出总量前200的关键词（前50条如下），第一名是c#，python排在第5
@@ -106,7 +106,7 @@ views数最多: [How to undo last commit(s) in Git?](http://stackoverflow.com/qu
 ('bash', 6825)
 ```
 这样看好像不太直观，所以就把它根据词频生成了词云  
-* ![词云](https://github.com/chenjiandongx/stackoverflow/blob/master/images/word_cloud.jpg)
+![词云](https://github.com/chenjiandongx/stackoverflow/blob/master/images/word_cloud.jpg)
 
 ## 因为是用python写的爬虫，所以重点来分析下Python类的问答
 
