@@ -4,7 +4,7 @@ import pymysql
 conn = pymysql.connect(host="localhost", port=3306, user="root", passwd="0303", db="chenx", charset="utf8")
 cur = conn.cursor()
 
-with open(r"e:\python\stackoverflow\data\data2.json", "r", encoding="utf-8") as f:
+with open(r"e:\python\stackoverflow\data\data1.json", "r", encoding="utf-8") as f:
     data = json.load(f)
 
     def insert_db(s_links, s_views, s_votes, s_answers, s_tags, s_questions):

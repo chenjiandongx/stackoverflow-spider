@@ -1,7 +1,10 @@
 from collections import Counter
+from collections import OrderedDict
 import json
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
+from pprint import pprint
+
 
 tags = []
 with open(r"e:\python\stackoverflow\data\data1.json", "r", encoding="utf-8") as f1:
@@ -17,11 +20,15 @@ with open(r"e:\python\stackoverflow\data\data2.json", "r", encoding="utf-8") as 
 
 counter = Counter(tags)
 counter_most = counter.most_common(200)
-# print(counter_most)
+
+# counter_dict = dict(counter_most)
+# sort_dict= sorted(counter_dict.items(), key=lambda value:value[1], reverse=True)
+# pprint(OrderedDict(sort_dict))
 
 wordcloud = WordCloud(font_path=r"e:\Font\msyh.ttf",
                       width=1200,
-                      height=600).generate_from_frequencies(dict(counter_most))
+                      height=600,
+                      max_words=200).generate_from_frequencies(dict(counter_most))
 plt.imshow(wordcloud)
 plt.axis('off')
 plt.show()
