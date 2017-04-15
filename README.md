@@ -1,6 +1,6 @@
 #  爬取Stackoverflow 100万条问答
 
-作为一个热爱编程的大学生，怎么能不知道stackoverflow和面向stackoverflow一种编程呢。
+作为一个热爱编程的大学生，怎么能不知道stackoverflow和面向stackoverflow编程呢。
 
 在questions页面下选择按vote排序，爬取前20000页，每页将问题数量设置为50，共 100W条，（实际上本来是想爬完1300W条的，但100W条后面问题基本上都只有1个或0个回答，那就选取前100W就好吧）  
 
@@ -18,6 +18,7 @@ votes数最多 : [Why is it faster to process a sorted array than an unsorted ar
 
 
 * **降序排列了这100W条数据的answers数，生成折线图**  
+  
   ![answers折线图](http://oog4yfyu0.bkt.clouddn.com/answers_0.png)  
 很明显2k之后的answers数基本上就小于20条了  
 answers数最多: [What is the best comment in source code you have ever encountered? [closed]](http://stackoverflow.com/questions/184618/what-is-the-best-comment-in-source-code-you-have-ever-encountered)
@@ -26,7 +27,7 @@ answers数最多: [What is the best comment in source code you have ever encount
 * **answers数的连续分布情况**  
 
   ![answers甘特图](http://oog4yfyu0.bkt.clouddn.com/answers_1.png)  
-150 后也就断层了，实际上能达到这样的回答数极少
+150后也就断层了，实际上能达到这样的回答数极少
 
 
 * **降序排列了这100W条数据的views数，生成折线图**  
@@ -43,13 +44,10 @@ views数最多: [How to undo last commit(s) in Git?](http://stackoverflow.com/qu
 
 ### 再看看votes，views，answers三者的散点图对应情况  
 * votes - views  
-
   ![votes-views散点图](http://oog4yfyu0.bkt.clouddn.com/views_votes.png)  
 * votes - answers  
-
   ![votes-answers散点图](http://oog4yfyu0.bkt.clouddn.com/answers_votes.png)
 * views - answers  
-
   ![views-answers散点图](http://oog4yfyu0.bkt.clouddn.com/view_answers.png)  
 
 总的来说，这三者对应关系类似于一个金字塔。三个图基本上都是左下角靠近原点的区域被填满，也就是说绝对大部分的问题的votes，answers和views都是属于最下层的。高质量活跃的问题是处于金字塔顶端的。三者的最高数好像也没特别明显的对应关系，且三者的最高数都不是同一个问题。
@@ -57,7 +55,7 @@ views数最多: [How to undo last commit(s) in Git?](http://stackoverflow.com/qu
 
 根据所有问题的tags提取出总量前200的关键词（前50条如下），第1名是c#，python排在第5
 
-```
+```python
 ('c#', 94614),
 ('java', 93244),
 ('javascript', 76722),
