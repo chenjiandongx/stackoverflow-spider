@@ -1,49 +1,63 @@
 #  爬取Stackoverflow 100万条问答
 
-* 作为一个热爱编程的大学生，怎么能不知道stackoverflow呢，面向stackoverflow也是一种新的编程模式。所以应该对这个网站有所了解，那就写爬虫分析一下吧。  
-* 在questions页面下选择按vote排序，爬取前20000页，每页将问题数量设置为50，共100W条，（实际上本来是想爬完1300W条的，但100W条后面问题基本上都只有1个或0个回答，那就选取前100W就好吧）  
+作为一个热爱编程的大学生，怎么能不知道stackoverflow和面向stackoverflow一种编程呢。
 
-**按降序排列了这100W条数据的votes数，生成折线图**  
-![Votes折线图](https://img.js.cn/images/2017/03/28/71354c8fa546aa2b6feb8a928481da98.png)  
+在questions页面下选择按vote排序，爬取前20000页，每页将问题数量设置为50，共 100W条，（实际上本来是想爬完1300W条的，但100W条后面问题基本上都只有1个或0个回答，那就选取前100W就好吧）  
+
+* **降序排列了这100W条数据的votes数，生成折线图**  
+
+  ![Votes折线图](http://oog4yfyu0.bkt.clouddn.com/votes_0.png)  
 2k后的问题的votes数基本上就已经在400以下了，接着后面的就基本上是贴地飞行了  
 votes数最多 : [Why is it faster to process a sorted array than an unsorted array?](http://stackoverflow.com/questions/11227809/why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array)
 
-**votes数的连续分布情况**  
-![votes甘特图](https://img.js.cn/images/2017/03/28/8f874409b5d0018587f08cda7f876499.png)  
+
+* **votes数的连续分布情况**  
+
+  ![votes甘特图](http://oog4yfyu0.bkt.clouddn.com/votes_1.png)  
 可见最多的还是集中在1-2K之间,从6k开始基本上就断层了
 
 
-**按降序排列了这100W条数据的answers数，生成折线图**  
-![answers折线图](https://img.js.cn/images/2017/03/28/6a93f6b13214893b12643f4254cf348e.png)  
-很明显，2k之后的answers数基本上就小于20条了  
+* **降序排列了这100W条数据的answers数，生成折线图**  
+  ![answers折线图](http://oog4yfyu0.bkt.clouddn.com/answers_0.png)  
+很明显2k之后的answers数基本上就小于20条了  
 answers数最多: [What is the best comment in source code you have ever encountered? [closed]](http://stackoverflow.com/questions/184618/what-is-the-best-comment-in-source-code-you-have-ever-encountered)
 
-**answers数的连续分布情况**  
-![answers甘特图](https://img.js.cn/images/2017/03/28/d2539af43a56b6b671bb76375cf12eb7.png)  
-150后也就断层了，实际上能达到这样的回答数极少
 
-**按降序排列了这100W条数据的views数，生成折线图**  
-![views折线图](https://img.js.cn/images/2017/03/28/3915c8a7667c45be4b53b7c9682da7e3.png)  
+* **answers数的连续分布情况**  
+
+  ![answers甘特图](http://oog4yfyu0.bkt.clouddn.com/answers_1.png)  
+150 后也就断层了，实际上能达到这样的回答数极少
+
+
+* **降序排列了这100W条数据的views数，生成折线图**  
+
+  ![views折线图](http://oog4yfyu0.bkt.clouddn.com/views_0.png)  
 最高达到了4.5m，10000以后的基本上就不足3000了  
 views数最多: [How to undo last commit(s) in Git?](http://stackoverflow.com/questions/927358/how-to-undo-last-commits-in-git)
 
-**views数的连续分布情况**  
-![views甘特图](https://img.js.cn/images/2017/03/28/1194f44aac0bc1df279cf24a83e02fe8.png)
+
+* **views数的连续分布情况**  
+
+  ![views甘特图](http://oog4yfyu0.bkt.clouddn.com/views_1.png)
+
 
 ### 再看看votes，views，answers三者的散点图对应情况  
 * votes - views  
-![votes-views散点图](https://img.js.cn/images/2017/03/28/3ba11c53dfeb889efd976a4304dbb1c9.png)  
+
+  ![votes-views散点图](http://oog4yfyu0.bkt.clouddn.com/views_votes.png)  
 * votes - answers  
-![votes-answers散点图](https://img.js.cn/images/2017/03/28/e8b6aa0297cfd49a880ec625c2ca75f8.png)  
+
+  ![votes-answers散点图](http://oog4yfyu0.bkt.clouddn.com/answers_votes.png)
 * views - answers  
-![views-answers散点图](https://img.js.cn/images/2017/03/28/03e946983fc9468a5829946028d1474f.png)  
+
+  ![views-answers散点图](http://oog4yfyu0.bkt.clouddn.com/view_answers.png)  
 
 总的来说，这三者对应关系类似于一个金字塔。三个图基本上都是左下角靠近原点的区域被填满，也就是说绝对大部分的问题的votes，answers和views都是属于最下层的。高质量活跃的问题是处于金字塔顶端的。三者的最高数好像也没特别明显的对应关系，且三者的最高数都不是同一个问题。
 
 
 根据所有问题的tags提取出总量前200的关键词（前50条如下），第1名是c#，python排在第5
 
-```python
+```
 ('c#', 94614),
 ('java', 93244),
 ('javascript', 76722),
@@ -96,11 +110,13 @@ views数最多: [How to undo last commit(s) in Git?](http://stackoverflow.com/qu
 ('unit-testing', 7253),
 ('bash', 6825)
 ```
+
 **这样看好像不太直观，所以就把它根据词频生成了词云**  
-![词云](https://img.js.cn/images/2017/03/28/fadffe93e3138c566b44e30721aac845.jpg)
+
+![词云](http://oog4yfyu0.bkt.clouddn.com/word_cloud.jpg)
+
 
 ## 因为是用python写的爬虫，所以重点来分析下Python类的问答
-
 ### votes数前10
 * votes数
 * 6162 : [What does the “yield” keyword do in Python?](http://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do-in-python)
@@ -114,6 +130,7 @@ views数最多: [How to undo last commit(s) in Git?](http://stackoverflow.com/qu
 * 2058 : [How to make a chain of function decorators?](http://stackoverflow.com/questions/739654/how-to-make-a-chain-of-function-decorators)
 * 1984 : [How to check if a directory exists and create it if necessary?](http://stackoverflow.com/questions/273192/how-to-check-if-a-directory-exists-and-create-it-if-necessary)
 
+
 ### answers数前10
 * answers数
 * 191 : [Hidden features of Python [closed]](http://stackoverflow.com/questions/101268/hidden-features-of-python)
@@ -126,6 +143,7 @@ views数最多: [How to undo last commit(s) in Git?](http://stackoverflow.com/qu
 * 38 : [Finding local IP addresses using Python's stdlib](http://stackoverflow.com/questions/166506/finding-local-ip-addresses-using-pythons-stdlib)
 * 37 : [Reverse a string in python without using reversed or [::-1]](http://stackoverflow.com/questions/18686860/reverse-a-string-in-python-without-using-reversed-or-1)
 * 37 : [How do I check whether a file exists using Python?](http://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-using-python)
+
 
 ### views数前10
 * views数
@@ -143,3 +161,8 @@ views数最多: [How to undo last commit(s) in Git?](http://stackoverflow.com/qu
 ### 三者的前十中有两个问题是完全重叠的，分别是
 * [How do I check whether a file exists using Python?](http://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-using-python)
 * [Calling an external command in Python](http://stackoverflow.com/questions/89228/calling-an-external-command-in-python)
+
+
+## Github源码 : 
+* [爬取Stackoverflow100万条问答](https://github.com/chenjiandongx/stackoverflow)  
+* 欢迎star和folk
