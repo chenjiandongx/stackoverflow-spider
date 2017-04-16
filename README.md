@@ -2,7 +2,7 @@
 
 作为一个热爱编程的大学生，怎么能不知道stackoverflow和面向stackoverflow编程呢。
 
-在questions页面下选择按vote排序，爬取前20000页，每页将问题数量设置为50，共 100W条，（实际上本来是想爬完1300W条的，但100W条后面问题基本上都只有1个或0个回答，那就选取前100W就好吧）  
+打开stackoverflow主页，在questions页面下选择按vote排序，爬取前20000页，每页将问题数量设置为50，共100W条，（实际上本来是想爬完1300W条的，但100W条后面问题基本上都只有1个或0个回答，那就选取前100W就好吧）  
 
 * **降序排列了这100W条数据的votes数，生成折线图**  
 
@@ -161,6 +161,4 @@ views数最多: [How to undo last commit(s) in Git?](http://stackoverflow.com/qu
 * [Calling an external command in Python](http://stackoverflow.com/questions/89228/calling-an-external-command-in-python)
 
 
-## Github源码 : 
-* [爬取Stackoverflow100万条问答](https://github.com/chenjiandongx/stackoverflow)  
-* 欢迎star和folk
+### 欢迎**star**和**folk**
