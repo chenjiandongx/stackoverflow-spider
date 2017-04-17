@@ -166,4 +166,4 @@ views数最多: [How to undo last commit(s) in Git?](http://stackoverflow.com/qu
 * [Calling an external command in Python](http://stackoverflow.com/questions/89228/calling-an-external-command-in-python)
 
 
-## 欢迎**star**和**folk**
+## 欢迎**fork**和**star**
