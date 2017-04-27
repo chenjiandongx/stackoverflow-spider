@@ -9,8 +9,6 @@
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
-# from stackoverflow.middleware import httpproxy
-# from stackoverflow.middleware import useragent
 
 BOT_NAME = 'stackoverflow'
 
@@ -96,10 +94,7 @@ DOWNLOAD_TIMEOUT = 120
 
 DOWNLOADER_MIDDLEWARES = {
    'stackoverflow.middleware.useragent.RandomUserAgentMiddleware':400,
-   # 'scrapy_crawlera.CrawleraMiddleware': 610,
-   # 'stackoverflow.spiders.proxy_middleware.ProxyMiddleware':750,
-   'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 750,
-   # 'stackoverflow.middlewares.MyCustomDownloaderMiddleware': 543,
+   # 'stackoverflow.middleware.httpproxy.ProxyMiddleware':750,
 }
 
 # Crwalera setting
