@@ -29,6 +29,7 @@ votes 数最多 : [Why is it faster to process a sorted array than an unsorted a
 | votes >= 300 | 3782  |
 | votes >= 200 | 7062  |
 | votes >= 100 | 19781 |  
+
 如果以 100 为分界线的话，会得到这样的一个饼图  
 
 ![pie_votes_1](http://oog4yfyu0.bkt.clouddn.com/pie_votes_1.png)  
@@ -43,6 +44,7 @@ votes 数最多 : [Why is it faster to process a sorted array than an unsorted a
 | 11 <= votes <= 15  | 136647  |
 | 16 <= votes <= 20  | 64541   |
 | votes <= 20        | 843927  |  
+
 可见 votes 小于 20 的，数量高达 84m  
 看看总体的比例吧  
 ![pie_votes_2](http://oog4yfyu0.bkt.clouddn.com/pie_votes_2.png)  
@@ -67,7 +69,8 @@ answers 数最多: [What is the best comment in source code you have ever encoun
 | answers >= 5   | 218059 |
 | answers >= 10  | 34500  |
 | answers >= 20  | 3808   |
-| answers >= 30  | 968    | 
+| answers >= 30  | 968    |  
+
 大于 30 的确实少的可怜，看看总体情况  
 ![pie_answer_1](http://oog4yfyu0.bkt.clouddn.com/pie_answer_1.png)  
 
@@ -93,7 +96,8 @@ views 数最多: [How to undo last commit(s) in Git?](http://stackoverflow.com/q
 | views >= 20000   | 171873  |
 | views >= 50000   | 59363   | 
 | views >= 100000  | 22224   | 
-| views >= 200000  | 7030    | 
+| views >= 200000  | 7030    |  
+
 大部分问答的 views 数还是集中在 20000 以内  
 还是得看看总体分布  
 ![bubble_views](http://oog4yfyu0.bkt.clouddn.com/bubble_views.png)
