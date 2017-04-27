@@ -1,4 +1,4 @@
-#  爬取 Stackoverflow 100m 条问答
+#  爬取 Stackoverflow 1m 条问答
 
 作为一个热爱编程的大学生，怎么能不知道面向 stackoverflow 编程呢。
 
