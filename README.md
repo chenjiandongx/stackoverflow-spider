@@ -1,64 +1,119 @@
-#  爬取 Stackoverflow 100万条问答
+#  爬取 Stackoverflow 100m 条问答
 
-作为一个热爱编程的大学生，怎么能不知道面向stackoverflow编程呢。
+作为一个热爱编程的大学生，怎么能不知道面向 stackoverflow 编程呢。
 
-打开stackoverflow主页，在questions页面下选择按vote排序，爬取前20000页，每页将问题数量设置为50，共100W条，（实际上本来是想爬完1300W条的，但100W条后面问题基本上都只有1个或0个回答，那就选取前100W就好吧）  
+打开 stackoverflow 主页，在 questions 页面下选择按 vote 排序，爬取前 20000 页，每页将问题数量设置为 50，共 1m 条，（实际上本来是想爬完 13m 条的，但 1m 条后面问题基本上都只有 1 个或 0 个回答，那就选取前 1m 就好吧）  
+ 
+实际上用数据库去重后只有 999654 条问答信息 
 
-## 对爬取数据进行简单分析  
-### 降序排列了这100W条数据的votes数，生成折线图  
+# 对爬取数据进行简单分析  
+## votes 分析
+### 降序排列了 votes 数，生成折线图  
 
 ![Votes折线图](http://oog4yfyu0.bkt.clouddn.com/votes_0.png)  
-2k后的问题的votes数基本上就已经在400以下了，接着后面的就基本上是贴地飞行了  
-votes数最多 : [Why is it faster to process a sorted array than an unsorted array?](http://stackoverflow.com/questions/11227809/why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array)
+2k 后的问题的 votes 数基本上就已经在 400 以下了，接着后面的就基本上是贴地飞行了  
+votes 数最多 : [Why is it faster to process a sorted array than an unsorted array?](http://stackoverflow.com/questions/11227809/why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array)
 
 
-### votes数的连续分布情况  
+### votes 数的连续分布情况  
 
 ![votes甘特图](http://oog4yfyu0.bkt.clouddn.com/votes_1.png)  
-可见最多的还是集中在1-2K之间,从6k开始基本上就断层了  
+可见最多的还是集中在 1-2K 之间,从 6k 开始基本上就断层了  
+
+### 具体数据  
+
+| description  | count |
+| -----------  | ----- |
+| votes >= 500 | 1630  |
+| votes >= 400 | 2325  |
+| votes >= 300 | 3782  |
+| votes >= 200 | 7062  |
+| votes >= 100 | 19781 |  
+如果以 100 为分界线的话，会得到这样的一个饼图  
+
+![pie_votes_1](http://oog4yfyu0.bkt.clouddn.com/pie_votes_1.png)  
+大于 100 的连 %2 都不到  
+
+再来看看底层的数据  
+
+| description | count   |
+| ----------- | -----   |
+| 1 <= votes <= 5    | 211804  |
+| 6 <= votes <= 10   | 430935  |
+| 11 <= votes <= 15  | 136647  |
+| 16 <= votes <= 20  | 64541   |
+| votes <= 20        | 843927  |  
+可见 votes 小于 20 的，数量高达 84m  
+看看总体的比例吧  
+![pie_votes_2](http://oog4yfyu0.bkt.clouddn.com/pie_votes_2.png)  
 
 
-### 降序排列了这100W条数据的answers数，生成折线图  
+## answers 分析
+### 降序排列了 answers 数，生成折线图  
   
 ![answers折线图](http://oog4yfyu0.bkt.clouddn.com/answers_0.png)  
-很明显2k之后的answers数基本上就小于20条了  
-answers数最多: [What is the best comment in source code you have ever encountered? [closed]](http://stackoverflow.com/questions/184618/what-is-the-best-comment-in-source-code-you-have-ever-encountered)  
+很明显 3k 之后的 answers 数基本上就小于 20 了  
+answers 数最多: [What is the best comment in source code you have ever encountered? [closed]](http://stackoverflow.com/questions/184618/what-is-the-best-comment-in-source-code-you-have-ever-encountered)  
 
-
-### answers数的连续分布情况  
+### answers 数的连续分布情况  
 
 ![answers甘特图](http://oog4yfyu0.bkt.clouddn.com/answers_1.png)  
-150后也就断层了，实际上能达到这样的回答数极少  
+150 后也就断层了，实际上能达到这样的回答数极少  
+
+### 具体数据  
+  
+| description   | count |
+| -----------   | ----- |
+| answers >= 5   | 218059 |
+| answers >= 10  | 34500  |
+| answers >= 20  | 3808   |
+| answers >= 30  | 968    | 
+大于 30 的确实少的可怜，看看总体情况  
+![pie_answer_1](http://oog4yfyu0.bkt.clouddn.com/pie_answer_1.png)  
 
 
-### 降序排列了这100W条数据的views数，生成折线图  
+## views 分析
+### 降序排列了 views 数，生成折线图  
 
 ![views折线图](http://oog4yfyu0.bkt.clouddn.com/views_0.png)  
-最高达到了4.5m，10000以后的基本上就不足3000了  
-views数最多: [How to undo last commit(s) in Git?](http://stackoverflow.com/questions/927358/how-to-undo-last-commits-in-git)
+最高达到了 4.5m，100000 以后的基本上就不足 28000 了  
+views 数最多: [How to undo last commit(s) in Git?](http://stackoverflow.com/questions/927358/how-to-undo-last-commits-in-git)
 
 
-### views数的连续分布情况  
+### views 数的连续分布情况  
 
 ![views甘特图](http://oog4yfyu0.bkt.clouddn.com/views_1.png)
 
+### 具体数据  
 
-### 再看看votes，views，answers三者的散点图对应情况  
-#### votes - views  
+| description   | count |
+| -----------   | ----- |
+| views >= 5000    | 486466  |
+| views >= 10000   | 315576  |
+| views >= 20000   | 171873  |
+| views >= 50000   | 59363   | 
+| views >= 100000  | 22224   | 
+| views >= 200000  | 7030    | 
+大部分问答的 views 数还是集中在 20000 以内  
+还是得看看总体分布  
+![bubble_views](http://oog4yfyu0.bkt.clouddn.com/bubble_views.png)
+
+## 再看看 votes，views，answers 三者的散点图对应情况  
+### votes - views  
 
 ![votes-views散点图](http://oog4yfyu0.bkt.clouddn.com/views_votes.png)  
-#### votes - answers  
+### votes - answers  
 
 ![votes-answers散点图](http://oog4yfyu0.bkt.clouddn.com/answers_votes.png)
-#### views - answers  
+### views - answers  
 
 ![views-answers散点图](http://oog4yfyu0.bkt.clouddn.com/view_answers.png)  
 
 
-总的来说，这三者对应关系类似于一个金字塔。三个图基本上都是左下角靠近原点的区域被填满，也就是说绝对大部分的问题的votes，answers和views都是属于最下层的。高质量活跃的问题是处于金字塔顶端的。三者的最高数好像也没特别明显的对应关系，且三者的最高数都不是同一个问题。
+总的来说，这三者对应关系类似于一个金字塔。三个图基本上都是左下角靠近原点的区域被填满，也就是说绝对大部分的问题的 votes，answers 和 views 都是属于最下层的。高质量活跃的问题是处于金字塔顶端的。三者的最高数好像也没特别明显的对应关系，且三者的最高数都不是同一个问题。
 
 
-根据所有问题的tags提取出总量前200的关键词（前50条如下），第1名是c#，python排在第5
+根据所有问题的 tags 提取出总量前 200 的关键词（前 50 条如下），第1名是 c#，python 排在第 5
 
 ```python
 ('c#', 94614),
@@ -119,9 +174,8 @@ views数最多: [How to undo last commit(s) in Git?](http://stackoverflow.com/qu
 ![词云](http://oog4yfyu0.bkt.clouddn.com/word_cloud.jpg)
 
 
-## 因为是用python写的爬虫，所以重点来分析下Python类的问答
-### votes数前10
-* votes数
+## 因为是用 python 写的爬虫，所以重点来分析下 Python 类的问答
+### votes 数前 10
 * 6162 : [What does the “yield” keyword do in Python?](http://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do-in-python)
 * 3529 : [What is a metaclass in Python?](http://stackoverflow.com/questions/100003/what-is-a-metaclass-in-python)
 * 3098 : [How do I check whether a file exists using Python?](http://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-using-python)
@@ -134,8 +188,7 @@ views数最多: [How to undo last commit(s) in Git?](http://stackoverflow.com/qu
 * 1984 : [How to check if a directory exists and create it if necessary?](http://stackoverflow.com/questions/273192/how-to-check-if-a-directory-exists-and-create-it-if-necessary)
 
 
-### answers数前10
-* answers数
+### answers 数前 10
 * 191 : [Hidden features of Python [closed]](http://stackoverflow.com/questions/101268/hidden-features-of-python)
 * 87 : [Best ways to teach a beginner to program? [closed]](http://stackoverflow.com/questions/3088/best-ways-to-teach-a-beginner-to-program)
 * 55 : [Favorite Django Tips & Features?](http://stackoverflow.com/questions/550632/favorite-django-tips-features)
@@ -148,8 +201,7 @@ views数最多: [How to undo last commit(s) in Git?](http://stackoverflow.com/qu
 * 37 : [How do I check whether a file exists using Python?](http://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-using-python)
 
 
-### views数前10
-* views数
+### views 数前 10
 * 2121621 : [Parse String to Float or Int](http://stackoverflow.com/questions/379906/parse-string-to-float-or-int)
 * 1905938 : [Using global variables in a function other than the one that created them](http://stackoverflow.com/questions/423379/using-global-variables-in-a-function-other-than-the-one-that-created-them)
 * 1888666 : [How do I check whether a file exists using Python?](http://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-using-python)
