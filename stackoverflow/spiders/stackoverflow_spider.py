@@ -10,7 +10,6 @@ class StackoverflowSpider(scrapy.Spider):
 
         urls = ['http://stackoverflow.com/questions?page={page}&sort=votes&pagesize=50'.format(page=page)
                 for page in range(11, 21)]
-
         for url in urls:
             yield scrapy.Request(url=url, callback=self.parse)
 
