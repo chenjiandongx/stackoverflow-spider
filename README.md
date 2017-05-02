@@ -10,14 +10,13 @@
 ## votes 分析
 ### 降序排列了 votes 数，生成折线图  
 
-![Votes折线图](http://oog4yfyu0.bkt.clouddn.com/votes_0.png)  
+![Votes折线图](https://github.com/chenjiandongx/stackoverflow/blob/master/images/votes_0.png)  
 2k 后的问题的 votes 数基本上就已经在 400 以下了，接着后面的就基本上是贴地飞行了  
 votes 数最多 : [Why is it faster to process a sorted array than an unsorted array?](http://stackoverflow.com/questions/11227809/why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array)
 
-
 ### votes 数的连续分布情况  
 
-![votes甘特图](http://oog4yfyu0.bkt.clouddn.com/votes_1.png)  
+![votes甘特图](https://github.com/chenjiandongx/stackoverflow/blob/master/images/votes_1.png)  
 可见最多的还是集中在 1-2K 之间,从 6k 开始基本上就断层了  
 
 ### 具体数据  
@@ -32,7 +31,7 @@ votes 数最多 : [Why is it faster to process a sorted array than an unsorted a
 
 如果以 100 为分界线的话，会得到这样的一个饼图  
 
-![pie_votes_1](http://oog4yfyu0.bkt.clouddn.com/pie_votes_1.png)  
+![pie_votes_1](https://github.com/chenjiandongx/stackoverflow/blob/master/images/pie_votes_1.png)  
 大于 100 的连 %2 都不到  
 
 再来看看底层的数据  
@@ -47,19 +46,19 @@ votes 数最多 : [Why is it faster to process a sorted array than an unsorted a
 
 可见 votes 小于 20 的，数量高达 84m  
 看看总体的比例吧  
-![pie_votes_2](http://oog4yfyu0.bkt.clouddn.com/pie_votes_2.png)  
+![pie_votes_2](https://github.com/chenjiandongx/stackoverflow/blob/master/images/pie_votes_2.png)  
 
 
 ## answers 分析
 ### 降序排列了 answers 数，生成折线图  
   
-![answers折线图](http://oog4yfyu0.bkt.clouddn.com/answers_0.png)  
+![answers折线图](https://github.com/chenjiandongx/stackoverflow/blob/master/images/answers_0.png)  
 很明显 3k 之后的 answers 数基本上就小于 20 了  
 answers 数最多: [What is the best comment in source code you have ever encountered? [closed]](http://stackoverflow.com/questions/184618/what-is-the-best-comment-in-source-code-you-have-ever-encountered)  
 
 ### answers 数的连续分布情况  
 
-![answers甘特图](http://oog4yfyu0.bkt.clouddn.com/answers_1.png)  
+![answers甘特图](https://github.com/chenjiandongx/stackoverflow/blob/master/images/answers_1.png)  
 150 后也就断层了，实际上能达到这样的回答数极少  
 
 ### 具体数据  
@@ -72,20 +71,20 @@ answers 数最多: [What is the best comment in source code you have ever encoun
 | answers >= 30  | 968    |  
 
 大于 30 的确实少的可怜，看看总体情况  
-![pie_answer_1](http://oog4yfyu0.bkt.clouddn.com/pie_answer_1.png)  
+![pie_answer_1](https://github.com/chenjiandongx/stackoverflow/blob/master/images/pie_answer_1.png)  
 
 
 ## views 分析
 ### 降序排列了 views 数，生成折线图  
 
-![views折线图](http://oog4yfyu0.bkt.clouddn.com/views_0.png)  
+![views折线图](https://github.com/chenjiandongx/stackoverflow/blob/master/images/views_0.png)  
 最高达到了 4.5m，100000 以后的基本上就不足 28000 了  
 views 数最多: [How to undo last commit(s) in Git?](http://stackoverflow.com/questions/927358/how-to-undo-last-commits-in-git)
 
 
 ### views 数的连续分布情况  
 
-![views甘特图](http://oog4yfyu0.bkt.clouddn.com/views_1.png)
+![views甘特图](https://github.com/chenjiandongx/stackoverflow/blob/master/images/views_1.png)
 
 ### 具体数据  
 
@@ -100,18 +99,18 @@ views 数最多: [How to undo last commit(s) in Git?](http://stackoverflow.com/q
 
 大部分问答的 views 数还是集中在 20000 以内  
 还是得看看总体分布  
-![bubble_views](http://oog4yfyu0.bkt.clouddn.com/bubble_views.png)
+![bubble_views](https://github.com/chenjiandongx/stackoverflow/blob/master/images/bubble_views.png)
 
 ## 再看看 votes，views，answers 三者的散点图对应情况  
 ### votes - views  
 
-![votes-views散点图](http://oog4yfyu0.bkt.clouddn.com/views_votes.png)  
+![votes-views散点图](https://github.com/chenjiandongx/stackoverflow/blob/master/images/views_votes.png)  
 ### votes - answers  
 
-![votes-answers散点图](http://oog4yfyu0.bkt.clouddn.com/answers_votes.png)
+![votes-answers散点图](https://github.com/chenjiandongx/stackoverflow/blob/master/images/answers_votes.png)
 ### views - answers  
 
-![views-answers散点图](http://oog4yfyu0.bkt.clouddn.com/view_answers.png)  
+![views-answers散点图](https://github.com/chenjiandongx/stackoverflow/blob/master/images/view_answers.png)  
 
 
 总的来说，这三者对应关系类似于一个金字塔。三个图基本上都是左下角靠近原点的区域被填满，也就是说绝对大部分的问题的 votes，answers 和 views 都是属于最下层的。高质量活跃的问题是处于金字塔顶端的。三者的最高数好像也没特别明显的对应关系，且三者的最高数都不是同一个问题。
@@ -175,7 +174,7 @@ views 数最多: [How to undo last commit(s) in Git?](http://stackoverflow.com/q
 
 ### 这样看好像不太直观，所以就把它根据词频生成了词云  
 
-![词云](http://oog4yfyu0.bkt.clouddn.com/word_cloud.jpg)
+![词云](https://github.com/chenjiandongx/stackoverflow/blob/master/images/word_cloud.jpg)
 
 
 ## 因为是用 python 写的爬虫，所以重点来分析下 Python 类的问答
