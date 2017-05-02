@@ -116,7 +116,7 @@ views 数最多: [How to undo last commit(s) in Git?](http://stackoverflow.com/q
 总的来说，这三者对应关系类似于一个金字塔。三个图基本上都是左下角靠近原点的区域被填满，也就是说绝对大部分的问题的 votes，answers 和 views 都是属于最下层的。高质量活跃的问题是处于金字塔顶端的。三者的最高数好像也没特别明显的对应关系，且三者的最高数都不是同一个问题。
 
 
-根据所有问题的 tags 提取出总量前 200 的关键词（前 50 条如下），第1名是 c#，python 排在第 5
+根据所有问题的 tags 提取出总量前 200 的关键词（前 50 条如下），第 1 名是 c#，python 排在第 5
 
 ```python
 ('c#', 94614),
@@ -177,7 +177,7 @@ views 数最多: [How to undo last commit(s) in Git?](http://stackoverflow.com/q
 ![词云](https://github.com/chenjiandongx/stackoverflow/blob/master/images/word_cloud.jpg)
 
 
-## 因为是用 python 写的爬虫，所以重点来分析下 Python 类的问答
+## 因为是用 Python 写的爬虫，所以重点来分析下 Python 类的问答
 ### votes 数前 10
 * 6162 : [What does the “yield” keyword do in Python?](http://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do-in-python)
 * 3529 : [What is a metaclass in Python?](http://stackoverflow.com/questions/100003/what-is-a-metaclass-in-python)
@@ -221,4 +221,4 @@ views 数最多: [How to undo last commit(s) in Git?](http://stackoverflow.com/q
 * [Calling an external command in Python](http://stackoverflow.com/questions/89228/calling-an-external-command-in-python)
 
 
-## 欢迎**fork**和**star**
+### 欢迎 Fork 和 Star
