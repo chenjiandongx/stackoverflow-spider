@@ -39,14 +39,21 @@ with open(PATH, "r", encoding="utf-8") as f:
         sql = "insert into stackoverflow_info(" \
               "s_links, s_views, s_votes, s_answers, s_tags, s_questions) " \
               "values(%s, %s, %s, %s, %s, %s)"
-        cur.execute(sql, *args)
+        cur.execute(sql, args)
 
-    create_table()
-    for index, value in enumerate(data):
+    # create_table()
+    for index, item in enumerate(data):
         try:
-            insert_db(value)
+            insert_db(
+                item['links'],
+                item['views'],
+                item['votes'][0],
+                item['answers'][0],
+                " ".join(item['tags']),
+                " ".join(item['questions']))
             index += 1
-            if index % 10000 == 0:
+            if index % 1000 == 0:
                 conn.commit()
         except Exception as e:
             print(e)
+    conn.close()
