@@ -1,23 +1,11 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for stackoverflow project
-#
-# For simplicity, this file contains only settings considered important or
-# commonly used. You can find more settings consulting the documentation:
-#
-#     http://doc.scrapy.org/en/latest/topics/settings.html
-#     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
-#     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
-
 
 BOT_NAME = 'stackoverflow'
 
 SPIDER_MODULES = ['stackoverflow.spiders']
 NEWSPIDER_MODULE = 'stackoverflow.spiders'
 
-
-# Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'stackoverflow (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -44,7 +32,6 @@ DOWNLOAD_DELAY = 2.5
 # The download delay setting will honor only one of:
 # The maximum number of concurrent (ie. simultaneous) requests that will be performed to any single domain (defalut:8)
 CONCURRENT_REQUESTS_PER_DOMAIN = 16
-#CONCURRENT_REQUESTS_PER_IP = 16
 
 # The maximum limit for Twisted Reactor thread pool size. (defalut:10)
 REACTOR_THREADPOOL_MAXSIZE = 32
@@ -63,7 +50,6 @@ REDIRECT_ENABLED = False
 COOKIES_ENABLED = False
 
 # Enables the AutoThrottle extension.(default:Flase)
-# AUTOTHROTTLE_ENABLED = False
 AUTOTHROTTLE_ENABLED = False
 
 # The amount of time (in secs) that the downloader will wait before timing out.(defalut:180)
@@ -73,81 +59,23 @@ AUTOTHROTTLE_ENABLED = False
 # recommend : DOWNLOAD_TIMEOUT = 15
 DOWNLOAD_TIMEOUT = 120
 
-# Disable Telnet Console (enabled by default)
-#TELNETCONSOLE_ENABLED = False
 
 # Override the default request headers:
-#DEFAULT_REQUEST_HEADERS = {
+# DEFAULT_REQUEST_HEADERS = {
 #   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
 #   'Accept-Language': 'en',
-#}
+# }
 
 # Enable or disable spider middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
-#SPIDER_MIDDLEWARES = {
+# SPIDER_MIDDLEWARES = {
 #    'stackoverflow.middlewares.StackoverflowSpiderMiddleware': 543,
-#}
+# }
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 # from stackoverflow.spiders.stackoverflow_spider import StackoverflowSpider
-
 DOWNLOADER_MIDDLEWARES = {
-   'stackoverflow.middleware.useragent.RandomUserAgentMiddleware':400,
-   # 'stackoverflow.middleware.httpproxy.ProxyMiddleware':750,
+   'stackoverflow.middleware.useragent.RandomUserAgentMiddleware': 400,
+   # 'stackoverflow.middleware.httpproxy.ProxyMiddleware': 750,
 }
-
-# Crwalera setting
-# Enable Crawlear extensions
-# CRAWLERA_ENABLED = True
-
-# Crawlera private API KEY
-# CRAWLERA_APIKEY = 'a67ebee1e6764a6f87585056f155ed1d'
-
-# Preserver DOWNLOAD_DELAY setting if it was be set
-# CRAWLERA_PRESERVE_DELAY = True
-
-# Enable or disable extensions
-# See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
-#EXTENSIONS = {
-#    'scrapy.extensions.telnet.TelnetConsole': None,
-#}
-
-# Configure item pipelines
-# See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'stackoverflow.pipelines.StackoverflowPipeline': 300,
-#}
-
-# Enable and configure the AutoThrottle extension (disabled by default)
-# See http://doc.scrapy.org/en/latest/topics/autothrottle.html
-#AUTOTHROTTLE_ENABLED = True
-# The initial download delay
-#AUTOTHROTTLE_START_DELAY = 5
-# The maximum download delay to be set in case of high latencies
-#AUTOTHROTTLE_MAX_DELAY = 60
-# The average number of requests Scrapy should be sending in parallel to
-# each remote server
-#AUTOTHROTTLE_TARGET_CONCURRENCY = 1.0
-# Enable showing throttling stats for every response received:
-#AUTOTHROTTLE_DEBUG = False
-
-# Enable and configure HTTP caching (disabled by default)
-# See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html#httpcache-middleware-settings
-
-# Whether the HTTP cache will be enabled.(default:False)
-# HTTPCACHE_ENABLED = True
-
-# Expiration time for cached requests, in seconds.(default:0)
-# Cached requests older than this time will be re-downloaded. If zero, cached requests will never expire.
-# HTTPCACHE_EXPIRATION_SECS = 0
-
-# The directory to use for storing the (low-level) HTTP cache. If empty, the HTTP cache will be disabled.
-# If a relative path is given, is taken relative to the project data dir.
-# HTTPCACHE_DIR = 'httpcache'
-
-# Don’t cache response with these HTTP codes.
-# HTTPCACHE_IGNORE_HTTP_CODES = []
-
-# The class which implements the cache storage backend.
-# HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
