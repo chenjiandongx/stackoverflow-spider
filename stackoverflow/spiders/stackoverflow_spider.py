@@ -41,13 +41,13 @@ class StackoverflowSpider(scrapy.Spider):
             sel = response.xpath('//*[@id="questions"]/div[{index}]'.format(index=index))
             item = StackoverflowItem()
             item['votes'] = sel.xpath(
-                'div[1]/div[2]/div[1]/div[1]/span/strong/text()').extract()
+                'div[1]/div[1]/span/text()').extract()[0]
             item['answers'] = sel.xpath(
-                'div[1]/div[2]/div[2]/strong/text()').extract()
+                'div[1]/div[2]/span/text()').extract()[0]
             item['views'] = "".join(
                 sel.xpath('div[1]/div[3]/@title').extract()).split()[0].replace(",", "")
             item['questions'] = sel.xpath('div[2]/h3/a/text()').extract()
             item['links'] = "".join(
                 sel.xpath('div[2]/h3/a/@href').extract()).split("/")[2]
-            item['tags'] = sel.xpath('div[2]/div[2]/a/text()').extract()
+            item['tags'] = sel.xpath('div[2]/div[2]/div[1]/ul/li/a/text()').extract()
             yield item
